@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+circle.yml
+logo*
+node_modules
+npm-debug.log
+scripts
+test*
