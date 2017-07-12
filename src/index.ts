@@ -1,5 +1,6 @@
 import { assign } from 'eslib'
 import { drop } from './drop'
+import { entries } from './entries'
 import { flatten } from './flatten'
 import { flatMap } from './flatMap'
 import { fromPairs } from './fromPairs'
@@ -44,6 +45,7 @@ declare global {
     zipWithIndex: typeof zipWithIndex
   }
   interface Object {
+    entries: typeof entries
     forEach: typeof forEach
     invert: typeof invert
     mapValues: typeof mapValues
@@ -61,7 +63,7 @@ arrayFns.forEach(fn =>
   assign(Array.prototype, { [fn.name]: fn }, SOURCE, VERSION)
 )
 
-let objectFns = [forEach, invert, mapValues, omit, pick]
+let objectFns = [entries, forEach, invert, mapValues, omit, pick]
 objectFns.forEach(fn =>
   assign(Object.prototype, { [fn.name]: fn }, SOURCE, VERSION)
 )

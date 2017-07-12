@@ -4,7 +4,7 @@ export function forEach<T extends object, K extends keyof T>(
 ): void {
   for (let i in this) {
     if (this.hasOwnProperty(i)) {
-      fn(this[i], i as K, this)
+      fn.call(this, this[i], i as K, this)
     }
   }
 }
