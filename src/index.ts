@@ -14,6 +14,7 @@ import { zip } from './zip'
 import { unzip } from './unzip'
 import { forEach } from './forEach'
 import { invert } from './invert'
+import { mapKeys } from './mapKeys'
 import { mapValues } from './mapValues'
 import { omit } from './omit'
 import { pick } from './pick'
@@ -48,6 +49,7 @@ declare global {
     entries: typeof entries
     forEach: typeof forEach
     invert: typeof invert
+    mapKeys: typeof mapKeys
     mapValues: typeof mapValues
     omit: typeof omit
     pick: typeof pick
@@ -63,7 +65,7 @@ arrayFns.forEach(fn =>
   assign(Array.prototype, { [fn.name]: fn }, SOURCE, VERSION)
 )
 
-let objectFns = [entries, forEach, invert, mapValues, omit, pick]
+let objectFns = [entries, forEach, invert, mapKeys, mapValues, omit, pick]
 objectFns.forEach(fn =>
   assign(Object.prototype, { [fn.name]: fn }, SOURCE, VERSION)
 )
